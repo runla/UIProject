@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import project.run.com.uihelper.MyConfirmDialog;
+import project.run.com.uihelper.MyDoubleDialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,15 +21,15 @@ public class MainActivity extends AppCompatActivity {
         btn_toast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyConfirmDialog myConfirmDialog = MyConfirmDialog.newInstance("亲，你好！你的登录密码有误，请重新登录，谢谢！");
-                myConfirmDialog.show(getSupportFragmentManager(),"tag");
+                MyConfirmDialog myConfirmDialog = MyConfirmDialog.newInstance("测试","亲，你好！你的登录密码有误，请重新登录，谢谢！");
+                myConfirmDialog.show(getSupportFragmentManager());
             }
         });
 
         btn_toast2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                MyDoubleDialog.newInstance("测试标题","这是双按钮对话框").show(getSupportFragmentManager());
             }
         });
     }

@@ -11,10 +11,11 @@ import project.run.com.uihelper.base.IConfirmListener;
 import project.run.com.uihelper.base.ViewHolder;
 
 /**
- * Created by chenjianrun on 2017/9/18.
+ * Created by Administrator on 2017/9/18.
+ * 描述：取消、确定按钮对话框
  */
 
-public class MyConfirmDialog extends BaseDialogFragment {
+public class MyDoubleDialog extends BaseDialogFragment{
     public static final String CONFIRM_PARAM = "confirmListener";
     public static final String MESSAGE_PARAM = "message";
     public static final String TITLE_PARAM = "title";
@@ -22,22 +23,17 @@ public class MyConfirmDialog extends BaseDialogFragment {
     private String title;
     private IConfirmListener confirmListener;
 
-    @Override
-    public int intLayoutId() {
-        return R.layout.dialog_confirm;
-    }
-
     /**
      * 创建对话框实例
      * @param title
      * @param content
      * @return
      */
-    public static MyConfirmDialog newInstance(String title,String content){
+    public static MyDoubleDialog newInstance(String title,String content){
         Bundle bundle = new Bundle();
         bundle.putString(TITLE_PARAM, title);
         bundle.putString(MESSAGE_PARAM, content);
-        MyConfirmDialog dialog = new MyConfirmDialog();
+        MyDoubleDialog dialog = new MyDoubleDialog();
         dialog.setArguments(bundle);
         return dialog;
     }
@@ -47,11 +43,11 @@ public class MyConfirmDialog extends BaseDialogFragment {
      * @param content
      * @return
      */
-    public static MyConfirmDialog newInstance(String content){
+    public static MyDoubleDialog newInstance(String content){
         Bundle bundle = new Bundle();
         bundle.putString(TITLE_PARAM, null);
         bundle.putString(MESSAGE_PARAM, content);
-        MyConfirmDialog dialog = new MyConfirmDialog();
+        MyDoubleDialog dialog = new MyDoubleDialog();
         dialog.setArguments(bundle);
         return dialog;
     }
@@ -69,11 +65,8 @@ public class MyConfirmDialog extends BaseDialogFragment {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putSerializable(CONFIRM_PARAM,confirmListener);
-        outState.putString(TITLE_PARAM,title);
-        outState.putString(MESSAGE_PARAM,message);
+    public int intLayoutId() {
+        return R.layout.dialog_double_button;
     }
 
     @Override
@@ -82,8 +75,9 @@ public class MyConfirmDialog extends BaseDialogFragment {
         holder.setText(R.id.message,message);
         holder.setText(R.id.title,title);
         if (TextUtils.isEmpty(title)) {
-            holder.setVisibility(R.id.title,View.GONE);
+            holder.setVisibility(R.id.title, View.GONE);
         }
+        //确定
         holder.setOnClickListener(R.id.ok, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +87,20 @@ public class MyConfirmDialog extends BaseDialogFragment {
                 }
             }
         });
+
+        //取消
+        holder.setOnClickListener(R.id.cancel, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                if (mICancelListener != null) {
+                    mICancelListener.onCancel();
+                }
+            }
+        });
+
     }
+
 
     /**
      * 设置确定按钮事件监听

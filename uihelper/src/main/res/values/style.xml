@@ -6,6 +6,7 @@
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowSoftInputMode">adjustPan</item>
         <item name="android:windowIsFloating">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 
     <style name="DefaultAnimation" parent="android:Animation">
@@ -18,10 +19,28 @@
         <item name="android:windowExitAnimation">@anim/dialog_bottom_exit_anim</item>
     </style>
 
-    <style name="DialogTextStyle">
+    <style name="DialogTitleStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/dialogTextColor</item>
         <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <style name="DialogContentStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/dialogTextColor</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingBottom">25dp</item>
+        <item name="android:paddingTop">25dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingLeft">20dp</item>
+    </style>
+
+    <style name="DialogButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dialogButtonHeight</item>
+        <item name="android:gravity">center</item>
     </style>
 </resources>

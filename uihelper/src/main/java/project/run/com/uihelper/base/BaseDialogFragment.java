@@ -32,6 +32,7 @@ public abstract class BaseDialogFragment extends DialogFragment {
     private static final String CANCEL = "out_cancel";
     private static final String ANIM = "anim_style";
     private static final String LAYOUT = "layout_id";
+    private static final String CANCEL_LISTEN = "layout_id";
 
     private int margin = 60;//左右边距,默认60dp
     private int width;//宽度
@@ -65,6 +66,7 @@ public abstract class BaseDialogFragment extends DialogFragment {
             outCancel = savedInstanceState.getBoolean(CANCEL);
             animStyle = savedInstanceState.getInt(ANIM);
             layoutId = savedInstanceState.getInt(LAYOUT);
+            mICancelListener = (ICancelListener) savedInstanceState.getSerializable(CANCEL_LISTEN);
         }
     }
 
@@ -99,6 +101,7 @@ public abstract class BaseDialogFragment extends DialogFragment {
         outState.putBoolean(CANCEL, outCancel);
         outState.putInt(ANIM, animStyle);
         outState.putInt(LAYOUT, layoutId);
+        outState.putSerializable(CANCEL_LISTEN,mICancelListener);
     }
 
     private void initParams() {
@@ -106,7 +109,6 @@ public abstract class BaseDialogFragment extends DialogFragment {
         if (window != null) {
             //默认动画
             animStyle = R.style.DefaultAnimation;
-
             WindowManager.LayoutParams lp = window.getAttributes();
             //调节灰色背景透明度[0-1]，默认0.65f
             lp.dimAmount = dimAmount;

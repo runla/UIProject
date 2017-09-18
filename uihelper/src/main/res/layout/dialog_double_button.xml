@@ -26,12 +26,28 @@
         android:background="@android:color/darker_gray" />
 
 
-    <!-- 按钮 -->
-    <TextView
-        android:id="@+id/ok"
-        style="@style/DialogButtonStyle"
-        android:background="@drawable/dialog_button_bg"
-        android:text="@android:string/ok"
-        android:textColor="@color/dialogTextColor" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 按钮 -->
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/cancel"
+            style="@style/DialogButtonStyle"
+            android:background="@drawable/dialog_button_cancel_bg"
+            android:text="@android:string/cancel"
+            android:textColor="@color/dialogTextColor" />
+
+        <!-- 按钮 -->
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/ok"
+            style="@style/DialogButtonStyle"
+            android:background="@drawable/dialog_button_confirm_bg"
+            android:text="@android:string/ok"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
 
 </LinearLayout>
