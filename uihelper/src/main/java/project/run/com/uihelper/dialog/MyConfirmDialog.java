@@ -1,4 +1,4 @@
-package project.run.com.uihelper;
+package project.run.com.uihelper.dialog;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.View;
 
+import project.run.com.uihelper.R;
 import project.run.com.uihelper.base.BaseDialogFragment;
 import project.run.com.uihelper.base.IConfirmListener;
 import project.run.com.uihelper.base.ViewHolder;

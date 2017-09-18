@@ -107,8 +107,7 @@ public abstract class BaseDialogFragment extends DialogFragment {
     private void initParams() {
         Window window = getDialog().getWindow();
         if (window != null) {
-            //默认动画
-            animStyle = R.style.DefaultAnimation;
+
             WindowManager.LayoutParams lp = window.getAttributes();
             //调节灰色背景透明度[0-1]，默认0.65f
             lp.dimAmount = dimAmount;
@@ -136,6 +135,10 @@ public abstract class BaseDialogFragment extends DialogFragment {
                 lp.height = dp2px(getContext(), height);
             }
 
+            if (animStyle == 0) {
+                //默认动画
+                animStyle = R.style.DefaultAnimation;
+            }
             //设置dialog进入、退出的动画
             window.setWindowAnimations(animStyle);
             window.setAttributes(lp);

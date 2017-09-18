@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">uihelper</string>
+    <string name="loading">加载中\u2026</string>
 </resources>

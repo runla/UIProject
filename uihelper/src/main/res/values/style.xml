@@ -19,6 +19,11 @@
         <item name="android:windowExitAnimation">@anim/dialog_bottom_exit_anim</item>
     </style>
 
+    <style name="DialogLoadingAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_loading_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/dialog_loading_exit_anim</item>
+    </style>
+
     <style name="DialogTitleStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -43,4 +48,5 @@
         <item name="android:layout_height">@dimen/dialogButtonHeight</item>
         <item name="android:gravity">center</item>
     </style>
+
 </resources>
