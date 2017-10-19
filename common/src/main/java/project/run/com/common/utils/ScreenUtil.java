@@ -7,7 +7,6 @@ import android.util.Log;
 
 import java.lang.reflect.Field;
 
-import project.run.com.common.MyCommonApplication;
 
 /**
  * 这个类是用来获取屏幕参数的，如：屏幕宽高、状态栏高度、NavBar 的高度
@@ -34,7 +33,7 @@ public class ScreenUtil {
     public static int navbarheight;
 
     static {
-        init(MyCommonApplication.getContext());
+//        init(MyCommonApplication.getContext());
     }
 
     public static int dip2px(float dipValue) {
@@ -71,16 +70,16 @@ public class ScreenUtil {
         Log.d(TAG, "screenWidth=" + screenWidth + " screenHeight=" + screenHeight + " density=" + density);
     }
 
-    public static int getDisplayWidth() {
+    public static int getDisplayWidth(Context context) {
         if (screenWidth == 0) {
-            GetInfo(MyCommonApplication.getContext());
+            GetInfo(context.getApplicationContext());
         }
         return screenWidth;
     }
 
-    public static int getDisplayHeight() {
+    public static int getDisplayHeight(Context context) {
         if (screenHeight == 0) {
-            GetInfo(MyCommonApplication.getContext());
+            GetInfo(context.getApplicationContext());
         }
         return screenHeight;
     }

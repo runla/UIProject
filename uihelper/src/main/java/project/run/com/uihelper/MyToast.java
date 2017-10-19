@@ -1,5 +1,6 @@
 package project.run.com.uihelper;
 
+import android.content.Context;
 import android.widget.Toast;
 
 /**
@@ -9,6 +10,11 @@ import android.widget.Toast;
 
 public class MyToast {
     private static Toast mToast;
+    private static Context context;
+
+    public static void init(Context context){
+        MyToast.context = context.getApplicationContext();
+    }
 
     /**
      * 内部获取 Toast 的实例
@@ -18,7 +24,7 @@ public class MyToast {
      */
     private static Toast getToast(String content,int duration){
         if (mToast == null) {
-            mToast = Toast.makeText(MyApplication.getContext(),
+            mToast = Toast.makeText(context,
                     content,duration);
         }else{
             mToast.setText(content);
