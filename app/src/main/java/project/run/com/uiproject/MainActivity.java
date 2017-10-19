@@ -35,9 +35,16 @@ public class MainActivity extends AppCompatActivity {
         btn_toast2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myLoadingDialog.dismiss();
+                try {
+                    Thread.sleep(2000L);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+//                myLoadingDialog.dismiss();
 //                MyDoubleDialog.newInstance("测试标题","这是双按钮对话框").show(getSupportFragmentManager());
             }
         });
+
+        String string;
     }
 }
